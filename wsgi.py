@@ -20,5 +20,10 @@ application = Flask(__name__)
 def hello_world():
     return "Hello Python World! dedicado a demis \r\n", 200, { 'Content-Type': 'text/plain' }
 
+@application.route('/maty')
+def hello_world_maty():
+    return "Hello Python World! dedicado a maty \r\n", 200, { 'Content-Type': 'text/plain' }
+
+
 if __name__ == '__main__':
     application.run(debug = True)
