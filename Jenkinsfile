@@ -20,18 +20,4 @@ node {
     openshiftVerifyDeployment depCfg: 'hellopythonapp',
       namespace: 'testing'
   }
-  stage('approval (production)') {
-    input message: 'Approve for production?',
-      id: 'approval'
-  }
-  stage('deploy to production') {
-    openshiftTag srcStream: 'hellopythonapp',
-      namespace: 'development',
-      srcTag: 'latest',
-      destinationNamespace: 'production',
-      destStream: 'hellopythonapp',
-      destTag: 'prod'
-    openshiftVerifyDeployment depCfg: 'hellopythonapp',
-      namespace: 'production'
-  }
 }
